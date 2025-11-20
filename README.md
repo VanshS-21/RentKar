@@ -131,24 +131,26 @@ See `frontend/.env.example` for available options
 - [Wireframes](./WIREFRAMES.md) - UI/UX designs
 - [Team Roles](./TEAM_ROLES.md) - Team structure and responsibilities
 - [Setup Guide](./SETUP_GUIDE.md) - Detailed installation instructions
-- [Week 1 Tasks](./WEEK1_TASKS.md) - Initial development tasks
+- [Project Status](./PROJECT_STATUS.md) - Current progress and remaining tasks
 
 ## 🎯 Features
 
-### Core Features
-- ✅ User authentication (Register/Login)
-- ✅ Item listing with image upload
-- ✅ AI-powered item descriptions
-- ✅ Borrow request workflow
-- ✅ Approve/reject requests
-- ✅ Item return tracking
-- ✅ User profiles
+### Core Features (To Be Implemented)
+- 🔄 User authentication (Register/Login)
+- 🔄 Item listing with image upload
+- 🔄 AI-powered item descriptions
+- 🔄 Borrow request workflow
+- 🔄 Approve/reject requests
+- 🔄 Item return tracking
+- 🔄 User profiles
 
 ### Optional Features
 - 🔄 Admin dashboard
 - 🔄 In-app messaging
 - 🔄 Search and filters
 - 🔄 Notifications
+
+**Current Status**: Week 1 Complete - See [PROJECT_STATUS.md](./PROJECT_STATUS.md) for detailed progress
 
 ## 🗓️ Development Timeline
 

@@ -1,0 +1,305 @@
+# RentKar - Project Status
+
+**Last Updated**: Week 1 Complete  
+**Repository**: https://github.com/VanshS-21/RentKar  
+**Overall Progress**: 10% (Week 1 of 12 complete)
+
+---
+
+## ✅ Week 1: Project Planning & Setup (COMPLETE)
+
+### Completed Tasks
+- ✅ Project scope and requirements finalized (PRD.md)
+- ✅ System architecture designed (ARCHITECTURE.md)
+- ✅ API contract defined (API_CONTRACT.md)
+- ✅ UI wireframes created (WIREFRAMES.md)
+- ✅ Team roles documented (TEAM_ROLES.md)
+- ✅ Development environment setup complete
+- ✅ Backend project created (Spring Boot + Maven)
+- ✅ Frontend project created (React + Vite + TailwindCSS)
+- ✅ Database created and configured (MySQL)
+- ✅ External services configured (Cloudinary, Gemini AI)
+- ✅ Git repository initialized and pushed to GitHub
+- ✅ Documentation complete
+
+---
+
+## 🔄 Week 2: Authentication System (PENDING)
+
+### Backend Tasks
+- [ ] Create User entity with JPA annotations
+- [ ] Implement UserRepository interface
+- [ ] Create JWT utility class for token generation/validation
+- [ ] Implement UserDetailsService for Spring Security
+- [ ] Create AuthService for registration and login logic
+- [ ] Build AuthController with register and login endpoints
+- [ ] Configure Spring Security with JWT filter
+- [ ] Add password encryption with BCrypt
+- [ ] Test authentication endpoints with Postman
+
+### Frontend Tasks
+- [ ] Create Register page with form validation
+- [ ] Create Login page with form validation
+- [ ] Implement AuthContext for global auth state
+- [ ] Create ProtectedRoute component
+- [ ] Add API service for auth endpoints
+- [ ] Implement token storage (localStorage/sessionStorage)
+- [ ] Add logout functionality
+- [ ] Create basic navigation/header component
+- [ ] Test registration and login flow
+
+### Integration
+- [ ] Connect frontend to backend auth APIs
+- [ ] Handle authentication errors
+- [ ] Add loading states during API calls
+- [ ] Test end-to-end authentication flow
+
+---
+
+## 🔄 Week 3-4: Item Management (PENDING)
+
+### Backend Tasks
+- [ ] Create Item entity with relationships
+- [ ] Implement ItemRepository with custom queries
+- [ ] Create ItemService for CRUD operations
+- [ ] Build ItemController with REST endpoints
+- [ ] Add search and filter functionality
+- [ ] Implement pagination for item listing
+- [ ] Add validation for item data
+- [ ] Integrate Cloudinary for image upload
+- [ ] Test all item endpoints
+
+### Frontend Tasks
+- [ ] Create Item listing page with grid/list view
+- [ ] Build Add Item form with image upload
+- [ ] Create Item detail page
+- [ ] Implement Edit Item functionality
+- [ ] Add Delete Item with confirmation
+- [ ] Create search and filter UI
+- [ ] Add pagination controls
+- [ ] Implement image preview before upload
+- [ ] Create "My Items" page for user's listings
+
+---
+
+## 🔄 Week 5: AI Integration (PENDING)
+
+### Backend Tasks
+- [ ] Create AIService for Gemini API integration
+- [ ] Implement prompt engineering for item descriptions
+- [ ] Build endpoint for AI title generation
+- [ ] Build endpoint for AI description generation
+- [ ] Add error handling for API failures
+- [ ] Implement rate limiting for AI calls
+- [ ] Test AI generation with various inputs
+
+### Frontend Tasks
+- [ ] Add "Generate with AI" button on item form
+- [ ] Show loading state during AI generation
+- [ ] Display generated content in form fields
+- [ ] Allow users to edit AI-generated content
+- [ ] Add retry functionality if generation fails
+- [ ] Show character count for descriptions
+
+---
+
+## 🔄 Week 6-7: Borrow Workflow (PENDING)
+
+### Backend Tasks
+- [ ] Create BorrowRequest entity
+- [ ] Implement BorrowRequestRepository
+- [ ] Create BorrowRequestService with status management
+- [ ] Build BorrowRequestController
+- [ ] Implement request creation logic
+- [ ] Add approve/reject functionality
+- [ ] Implement return confirmation workflow
+- [ ] Add status tracking (PENDING, APPROVED, REJECTED, RETURNED, COMPLETED)
+- [ ] Create endpoints for sent/received requests
+- [ ] Test complete borrow workflow
+
+### Frontend Tasks
+- [ ] Add "Borrow" button on item details
+- [ ] Create Borrow Request form with message
+- [ ] Build "My Requests" page (sent requests)
+- [ ] Build "Incoming Requests" page (received requests)
+- [ ] Add approve/reject buttons for lenders
+- [ ] Implement "Mark as Returned" functionality
+- [ ] Show request status with badges
+- [ ] Add request history view
+- [ ] Create notifications for request updates
+
+---
+
+## 🔄 Week 8-9: Optional Features (PENDING)
+
+### Admin Dashboard (Optional)
+- [ ] Create Admin role and permissions
+- [ ] Build admin panel UI
+- [ ] Add item removal functionality
+- [ ] Add user management features
+- [ ] Create platform statistics dashboard
+- [ ] Add content moderation tools
+
+### Messaging System (Optional)
+- [ ] Design message schema
+- [ ] Create Message entity and repository
+- [ ] Build messaging endpoints
+- [ ] Create chat UI component
+- [ ] Implement real-time updates (WebSocket/polling)
+- [ ] Add message notifications
+
+### Additional Features (Optional)
+- [ ] Item categories and filtering
+- [ ] User ratings and reviews
+- [ ] Item availability calendar
+- [ ] Email notifications
+- [ ] Search with autocomplete
+- [ ] Item view counter
+
+---
+
+## 🔄 Week 10: UI Polish (PENDING)
+
+### Tasks
+- [ ] Make all pages fully responsive
+- [ ] Add loading skeletons
+- [ ] Implement error boundaries
+- [ ] Add toast notifications
+- [ ] Improve form validation messages
+- [ ] Add animations and transitions
+- [ ] Optimize images and assets
+- [ ] Test on different screen sizes
+- [ ] Improve accessibility (ARIA labels, keyboard navigation)
+- [ ] Add dark mode (optional)
+- [ ] Create 404 and error pages
+- [ ] Polish overall UX
+
+---
+
+## 🔄 Week 11: Testing & Debugging (PENDING)
+
+### Backend Testing
+- [ ] Write unit tests for services
+- [ ] Write integration tests for controllers
+- [ ] Test database transactions
+- [ ] Test security configurations
+- [ ] Load testing for APIs
+- [ ] Fix identified bugs
+
+### Frontend Testing
+- [ ] Test all user flows
+- [ ] Cross-browser testing
+- [ ] Mobile responsiveness testing
+- [ ] Test form validations
+- [ ] Test error handling
+- [ ] Fix UI bugs
+
+### Integration Testing
+- [ ] Test complete user journey
+- [ ] Test authentication flow
+- [ ] Test item creation and borrowing
+- [ ] Test image uploads
+- [ ] Test AI generation
+- [ ] Performance testing
+
+---
+
+## 🔄 Week 12: Documentation & Presentation (PENDING)
+
+### Documentation
+- [ ] Update README with final instructions
+- [ ] Complete API documentation
+- [ ] Add code comments
+- [ ] Create user guide
+- [ ] Document deployment process
+- [ ] Create troubleshooting guide
+
+### Presentation
+- [ ] Create PowerPoint presentation
+- [ ] Prepare demo script
+- [ ] Record demo video (optional)
+- [ ] Prepare Q&A responses
+- [ ] Practice presentation
+- [ ] Final submission
+
+---
+
+## 📊 Overall Progress Tracker
+
+| Week | Milestone | Status | Progress |
+|------|-----------|--------|----------|
+| Week 1 | Project Planning & Setup | ✅ Complete | 100% |
+| Week 2 | Authentication System | ⏳ Pending | 0% |
+| Week 3-4 | Item Management | ⏳ Pending | 0% |
+| Week 5 | AI Integration | ⏳ Pending | 0% |
+| Week 6-7 | Borrow Workflow | ⏳ Pending | 0% |
+| Week 8-9 | Optional Features | ⏳ Pending | 0% |
+| Week 10 | UI Polish | ⏳ Pending | 0% |
+| Week 11 | Testing & Debugging | ⏳ Pending | 0% |
+| Week 12 | Documentation & Presentation | ⏳ Pending | 0% |
+
+**Overall Project Completion**: 10% (1/10 weeks complete)
+
+---
+
+## 🎯 Current Focus
+
+**Next Milestone**: Week 2 - Authentication System
+
+**Priority Tasks**:
+1. Create User entity and repository
+2. Implement JWT authentication
+3. Build register and login endpoints
+4. Create authentication UI pages
+5. Test end-to-end authentication
+
+---
+
+## 🛠️ Technical Debt
+
+None currently. Project is in early stage.
+
+---
+
+## 🚀 Quick Start
+
+### Run the Application
+```bash
+# Backend
+start-backend.bat
+
+# Frontend
+start-frontend.bat
+```
+
+### Access Points
+- Frontend: http://localhost:5173
+- Backend: http://localhost:8080
+- API Docs: http://localhost:8080/swagger-ui.html
+
+---
+
+## 📁 Key Files
+
+- **PRD.md** - Product requirements and project scope
+- **ARCHITECTURE.md** - System design and tech stack
+- **API_CONTRACT.md** - Complete API specifications
+- **WIREFRAMES.md** - UI/UX designs
+- **TEAM_ROLES.md** - Team structure
+- **SETUP_GUIDE.md** - Installation instructions
+- **PROJECT_STATUS.md** - This file (current status)
+
+---
+
+## 🔗 Resources
+
+- **Repository**: https://github.com/VanshS-21/RentKar
+- **Spring Boot Docs**: https://spring.io/projects/spring-boot
+- **React Docs**: https://react.dev/
+- **TailwindCSS**: https://tailwindcss.com/docs
+- **Cloudinary**: https://cloudinary.com/documentation
+- **Gemini API**: https://ai.google.dev/docs
+
+---
+
+*This document is updated at the end of each week to track progress.*
