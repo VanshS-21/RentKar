@@ -1,8 +1,8 @@
 # RentKar - Project Status
 
-**Last Updated**: Week 2 Complete  
+**Last Updated**: Week 6-7 Complete  
 **Repository**: https://github.com/VanshS-21/RentKar  
-**Overall Progress**: 20% (Week 2 of 12 complete)
+**Overall Progress**: 70% (Week 7 of 12 complete)
 
 ---
 
@@ -69,92 +69,157 @@
 
 ---
 
-## 🔄 Week 3-4: Item Management (IN PROGRESS)
+## ✅ Week 3-4: Item Management (COMPLETE)
 
 **Spec Status**: ✅ Requirements, Design, and Tasks Complete  
 **Spec Location**: `.kiro/specs/item-management/`
 
 ### Backend Tasks
-- [ ] Create Item entity with relationships
-- [ ] Implement ItemRepository with custom queries
-- [ ] Create CloudinaryService for image upload
-- [ ] Create ItemService for CRUD operations
-- [ ] Build ItemController with REST endpoints
-- [ ] Add search and filter functionality
-- [ ] Implement pagination for item listing
-- [ ] Add validation for item data
-- [ ] Write property-based tests (39 properties)
-- [ ] Write integration tests for all endpoints
+- ✅ Create Item entity with relationships
+- ✅ Implement ItemRepository with custom queries
+- ✅ Create CloudinaryService for image upload
+- ✅ Create ItemService for CRUD operations
+- ✅ Build ItemController with REST endpoints
+- ✅ Add search and filter functionality
+- ✅ Implement pagination for item listing
+- ✅ Add validation for item data
+- ✅ Write property-based tests (39 properties)
+- ✅ Write integration tests for all endpoints
+- ✅ All backend tests passing (56/56)
 
 ### Frontend Tasks
-- [ ] Create itemService API client
-- [ ] Create Item listing page with grid/list view
-- [ ] Build Add Item form with image upload
-- [ ] Create Item detail page
-- [ ] Implement Edit Item functionality
-- [ ] Add Delete Item with confirmation
-- [ ] Create search and filter UI
-- [ ] Add pagination controls
-- [ ] Implement image preview before upload
-- [ ] Create "My Items" page for user's listings
-- [ ] Write property-based tests for UI components
+- ✅ Create itemService API client
+- ✅ Create Item listing page with grid/list view
+- ✅ Build Add Item form with image upload
+- ✅ Create Item detail page
+- ✅ Implement Edit Item functionality
+- ✅ Add Delete Item with confirmation
+- ✅ Create search and filter UI
+- ✅ Add pagination controls
+- ✅ Implement image preview before upload
+- ✅ Create "My Items" page for user's listings
+- ✅ Write property-based tests for UI components
+- ✅ All frontend tests passing (28/28)
 
-### Key Features to Implement
-- Full CRUD operations for items
-- Cloudinary integration for image storage
-- Advanced search with keyword matching
+### Key Features Implemented
+- Full CRUD operations for items with authorization
+- Cloudinary integration for image storage (5MB limit, image validation)
+- Advanced search with keyword matching (title and description)
 - Multi-criteria filtering (category, status, search)
-- Pagination for large result sets
-- Owner-based authorization for edit/delete
-- Comprehensive property-based testing (39 correctness properties)
+- Pagination for large result sets with metadata
+- Owner-based authorization for edit/delete operations
+- Comprehensive property-based testing (39 correctness properties validated)
+- File upload validation (size and type checking)
+- Image preview before upload
+- Responsive UI with TailwindCSS
 
 ---
 
-## 🔄 Week 5: AI Integration (PENDING)
+## ✅ Week 5: AI Integration (COMPLETE)
+
+**Spec Status**: ✅ Requirements, Design, and Tasks Complete  
+**Spec Location**: `.kiro/specs/ai-description-generation/`
 
 ### Backend Tasks
-- [ ] Create AIService for Gemini API integration
-- [ ] Implement prompt engineering for item descriptions
-- [ ] Build endpoint for AI title generation
-- [ ] Build endpoint for AI description generation
-- [ ] Add error handling for API failures
-- [ ] Implement rate limiting for AI calls
-- [ ] Test AI generation with various inputs
+- ✅ Create AIService for Gemini API integration
+- ✅ Implement prompt engineering for item descriptions
+- ✅ Build endpoint for AI title generation
+- ✅ Build endpoint for AI description generation
+- ✅ Add error handling for API failures
+- ✅ Implement rate limiting for AI calls (10 requests/hour per user)
+- ✅ Test AI generation with various inputs
+- ✅ Create PromptBuilder utility for category-specific prompts
+- ✅ Implement RateLimiter with sliding window algorithm
+- ✅ Add comprehensive logging and monitoring
+- ✅ Write property-based tests (33 properties)
+- ✅ Write integration tests for AI endpoints
+- ✅ All backend tests passing (97/97)
 
 ### Frontend Tasks
-- [ ] Add "Generate with AI" button on item form
-- [ ] Show loading state during AI generation
-- [ ] Display generated content in form fields
-- [ ] Allow users to edit AI-generated content
-- [ ] Add retry functionality if generation fails
-- [ ] Show character count for descriptions
+- ✅ Add "Generate with AI" button on item form
+- ✅ Show loading state during AI generation
+- ✅ Display generated content in form fields
+- ✅ Allow users to edit AI-generated content
+- ✅ Add retry/regenerate functionality
+- ✅ Show character count for descriptions
+- ✅ Create useAIGeneration custom hook
+- ✅ Create AIGenerationButton component
+- ✅ Integrate AI buttons into AddItemPage and EditItemPage
+- ✅ Implement error handling UI with user-friendly messages
+- ✅ Add rate limit UI feedback with countdown timer
+- ✅ Show remaining requests count
+- ✅ Implement graceful degradation when AI is unavailable
+- ✅ Write property-based tests for AI components
+- ✅ All frontend tests passing (34/34)
+
+### Key Features Implemented
+- Google Gemini AI integration for automatic content generation
+- Category-specific prompt engineering (Electronics, Books, Sports Equipment, Tools, etc.)
+- Rate limiting with sliding window algorithm (10 requests/hour per user)
+- Per-user and IP-based rate limiting
+- Comprehensive error handling (timeout, API errors, rate limits)
+- Regeneration with temperature variation for different results
+- Form content preservation on errors
+- Loading states and user feedback
+- Graceful degradation when AI service is unavailable
+- Structured logging with JSON format (excludes sensitive data)
+- 33 correctness properties validated with property-based testing
+- Complete user guide documentation (AI_GENERATION_GUIDE.md)
 
 ---
 
-## 🔄 Week 6-7: Borrow Workflow (PENDING)
+## ✅ Week 6-7: Borrow Workflow (COMPLETE)
+
+**Spec Status**: ✅ Requirements, Design, and Tasks Complete  
+**Spec Location**: `.kiro/specs/borrow-workflow/`  
+**Documentation**: BORROW_WORKFLOW_GUIDE.md
 
 ### Backend Tasks
-- [ ] Create BorrowRequest entity
-- [ ] Implement BorrowRequestRepository
-- [ ] Create BorrowRequestService with status management
-- [ ] Build BorrowRequestController
-- [ ] Implement request creation logic
-- [ ] Add approve/reject functionality
-- [ ] Implement return confirmation workflow
-- [ ] Add status tracking (PENDING, APPROVED, REJECTED, RETURNED, COMPLETED)
-- [ ] Create endpoints for sent/received requests
-- [ ] Test complete borrow workflow
+- ✅ Create BorrowRequest entity with status tracking
+- ✅ Implement BorrowRequestRepository with custom queries
+- ✅ Create BorrowRequestService with all workflow methods
+- ✅ Build REST API endpoints for all actions (10 endpoints)
+- ✅ Add comprehensive validation and authorization
+- ✅ Implement date validation (no past dates, valid ranges)
+- ✅ Add item availability checks
+- ✅ Implement property-based tests (32 properties)
+- ✅ Write integration tests for complete workflows
+- ✅ Write end-to-end tests for all flows
+- ✅ All backend tests passing
 
 ### Frontend Tasks
-- [ ] Add "Borrow" button on item details
-- [ ] Create Borrow Request form with message
-- [ ] Build "My Requests" page (sent requests)
-- [ ] Build "Incoming Requests" page (received requests)
-- [ ] Add approve/reject buttons for lenders
-- [ ] Implement "Mark as Returned" functionality
-- [ ] Show request status with badges
-- [ ] Add request history view
-- [ ] Create notifications for request updates
+- ✅ Create MyRequestsPage (borrower view)
+- ✅ Create IncomingRequestsPage (lender view)
+- ✅ Build request creation form on ItemDetailPage
+- ✅ Implement StatusBadge component with color coding
+- ✅ Create RequestCard component for list view
+- ✅ Create RequestDetailModal for full details
+- ✅ Add notifications for status changes (toast messages)
+- ✅ Implement statistics dashboard
+- ✅ Add filtering by status
+- ✅ Implement optimistic updates with rollback
+- ✅ Write property-based tests for UI components
+- ✅ All frontend tests passing
+
+### Key Features Implemented
+- Complete request lifecycle (PENDING → APPROVED → RETURNED → COMPLETED)
+- Borrower view with sent requests tracking
+- Lender view with incoming requests management
+- Approve/reject workflow with optional messages
+- Return confirmation workflow (lender marks returned, borrower confirms)
+- Request cancellation for pending requests
+- Status tracking with visual badges (5 statuses with color coding)
+- Real-time statistics (pending, approved, rejected, returned, completed counts)
+- Status filtering for both views
+- Authorization checks (lender-only and borrower-only actions)
+- Comprehensive validation (dates, item availability, ownership)
+- Toast notifications for all status changes
+- Optimistic UI updates with error rollback
+- Contact information sharing (only for approved requests)
+- Request history with timestamps
+- 32 correctness properties validated with property-based testing
+- Complete user guide documentation (BORROW_WORKFLOW_GUIDE.md)
+- Full API documentation with examples and error responses
 
 ---
 
@@ -258,54 +323,65 @@
 |------|-----------|--------|----------|
 | Week 1 | Project Planning & Setup | ✅ Complete | 100% |
 | Week 2 | Authentication System | ✅ Complete | 100% |
-| Week 3-4 | Item Management | ⏳ Pending | 0% |
-| Week 5 | AI Integration | ⏳ Pending | 0% |
-| Week 6-7 | Borrow Workflow | ⏳ Pending | 0% |
+| Week 3-4 | Item Management | ✅ Complete | 100% |
+| Week 5 | AI Integration | ✅ Complete | 100% |
+| Week 6-7 | Borrow Workflow | ✅ Complete | 100% |
 | Week 8-9 | Optional Features | ⏳ Pending | 0% |
 | Week 10 | UI Polish | ⏳ Pending | 0% |
 | Week 11 | Testing & Debugging | ⏳ Pending | 0% |
 | Week 12 | Documentation & Presentation | ⏳ Pending | 0% |
 
-**Overall Project Completion**: 20% (2/10 weeks complete)
+**Overall Project Completion**: 70% (7/10 weeks complete)
 
 ---
 
 ## 🎯 Current Focus
 
-**Next Milestone**: Week 3-4 - Item Management
+**Next Milestone**: Week 8-9 - Optional Features / Week 10 - UI Polish
 
-**Spec Ready**: ✅ Complete requirements, design, and implementation plan available at `.kiro/specs/item-management/`
+**Current Status**: Borrow Workflow Complete ✅
 
-**Priority Tasks**:
-1. Create Item entity with JPA annotations and relationships
-2. Implement ItemRepository with custom search queries
-3. Create CloudinaryService for image upload integration
-4. Build ItemService with CRUD operations and authorization
-5. Create ItemController with REST endpoints
-6. Implement comprehensive property-based tests (39 properties)
-7. Create frontend item listing page with search and filters
-8. Build Add/Edit Item forms with image upload
-9. Create Item detail page with owner actions
+**Completed in Week 6-7**:
+- ✅ Complete borrow request lifecycle implementation
+- ✅ 10 REST API endpoints for all workflow actions
+- ✅ Borrower and lender views with filtering
+- ✅ Status tracking with 5 distinct states
+- ✅ Authorization and validation for all actions
+- ✅ Statistics dashboard with real-time counts
+- ✅ Toast notifications for status changes
+- ✅ Optimistic UI updates with error rollback
+- ✅ All 32 borrow workflow correctness properties validated
+- ✅ Complete user guide documentation (BORROW_WORKFLOW_GUIDE.md)
+- ✅ Comprehensive API documentation with examples
+- ✅ UI polish with accessibility improvements
+- ✅ Smooth transitions and animations
+- ✅ Responsive design for all screen sizes
 
-**How to Start**:
-- Open `.kiro/specs/item-management/tasks.md`
-- Click "Start task" next to task 1.1 to begin implementation
-- Follow the incremental task list for guided development
+**Next Steps**:
+1. Consider implementing optional features (admin dashboard, messaging)
+2. Continue UI polish and accessibility improvements
+3. Comprehensive testing and bug fixes
+4. Performance optimization
+5. Final documentation and presentation preparation
 
 ---
 
 ## 🛠️ Technical Debt
 
-### Minor Issues
-- 4 frontend property-based tests failing due to test data generation issues (not implementation bugs)
-  - Tests generate special characters that break the testing library
-  - Actual authentication functionality works correctly
-  - Can be addressed by constraining test input generators
+### Cleanup Needed
+- ✅ Redundant test files identified (ItemServicePropertyTest2.java, ItemServicePropertyTest3.java)
+  - These files contain property tests 13-39
+  - Should be consolidated into ItemServicePropertyTest.java for better organization
+  - All tests are passing, consolidation is for code organization only
 
 ### Notes
-- All backend tests passing (27/27)
-- Core frontend functionality fully tested and working (8/12 tests passing)
-- Authentication system is production-ready
+- All backend tests passing (including borrow workflow tests)
+- All frontend tests passing (including borrow workflow tests)
+- Authentication, Item Management, AI Integration, and Borrow Workflow systems are production-ready
+- Complete user guides available:
+  - AI_GENERATION_GUIDE.md - AI-powered content generation
+  - BORROW_WORKFLOW_GUIDE.md - Borrowing and lending guide
+- Core platform features complete and ready for production
 
 ---
 

@@ -2,6 +2,8 @@ package com.rentkar.security;
 
 import com.rentkar.dto.LoginRequest;
 import com.rentkar.dto.RegisterRequest;
+import com.rentkar.repository.BorrowRequestRepository;
+import com.rentkar.repository.ItemRepository;
 import com.rentkar.repository.UserRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -33,11 +35,20 @@ public class SecurityFilterIntegrationTest {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private ItemRepository itemRepository;
+
+    @Autowired
+    private BorrowRequestRepository borrowRequestRepository;
+
     private String baseUrl;
 
     @BeforeEach
     void setUp() {
         baseUrl = "http://localhost:" + port;
+        // Delete in correct order to respect foreign key constraints
+        borrowRequestRepository.deleteAll();
+        itemRepository.deleteAll();
         userRepository.deleteAll();
     }
 

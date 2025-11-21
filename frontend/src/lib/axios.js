@@ -28,7 +28,8 @@ axiosInstance.interceptors.response.use(
     return response;
   },
   (error) => {
-    if (error.response && error.response.status === 401) {
+    // Only redirect to login for actual authentication errors, not validation errors
+    if (error.response && error.response.status === 401 && error.config?.url !== '/error') {
       // Automatic logout on 401
       localStorage.removeItem('token');
       localStorage.removeItem('user');

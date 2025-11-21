@@ -41,10 +41,13 @@ const authService = {
   async login(credentials) {
     try {
       const response = await axiosInstance.post('/auth/login', credentials);
+      
+      // Backend returns { success, message, data: { token, type, user } }
+      // We need to return the inner data object
       return {
         success: true,
-        data: response.data,
-        message: 'Login successful',
+        data: response.data.data, // Extract the inner data object
+        message: response.data.message || 'Login successful',
       };
     } catch (error) {
       return {
@@ -62,9 +65,10 @@ const authService = {
   async getCurrentUser() {
     try {
       const response = await axiosInstance.get('/auth/me');
+      // Backend returns { success, message, data: user }
       return {
         success: true,
-        data: response.data,
+        data: response.data.data, // Extract the inner data object
       };
     } catch (error) {
       return {

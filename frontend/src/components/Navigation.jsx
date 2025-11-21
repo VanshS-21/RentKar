@@ -1,14 +1,49 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 import { useAuth } from '../contexts/AuthContext'
 import { Button } from './ui/button'
+import { useEffect, useState } from 'react'
+import borrowRequestService from '../services/borrowRequestService'
 
 /**
  * Navigation component that displays different content based on authentication state.
  * Shows login/register links for unauthenticated users.
  * Shows user info and logout button for authenticated users.
+ * Displays notification badge for pending incoming requests.
+ * Requirements: 14.1, 14.2
  */
 const Navigation = () => {
   const { user, isAuthenticated, logout } = useAuth()
+  const location = useLocation()
+  const [pendingCount, setPendingCount] = useState(0)
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      fetchPendingCount()
+      // Poll for updates every 30 seconds
+      const interval = setInterval(fetchPendingCount, 30000)
+      return () => clearInterval(interval)
+    }
+  }, [isAuthenticated])
+
+  // Clear badge when viewing incoming requests page
+  useEffect(() => {
+    if (location.pathname === '/requests/received') {
+      setPendingCount(0)
+    } else if (isAuthenticated) {
+      fetchPendingCount()
+    }
+  }, [location.pathname, isAuthenticated])
+
+  const fetchPendingCount = async () => {
+    const result = await borrowRequestService.getStatistics()
+    if (result.success && result.data) {
+      // Get pending incoming requests count
+      const received = await borrowRequestService.getReceivedRequests('PENDING')
+      if (received.success && received.data) {
+        setPendingCount(received.data.length)
+      }
+    }
+  }
 
   const handleLogout = () => {
     logout()
@@ -29,7 +64,37 @@ const Navigation = () => {
             {isAuthenticated ? (
               // Authenticated User Navigation
               <>
-                <div className="flex items-center space-x-2">
+                <Link to="/items">
+                  <Button variant="ghost" size="sm">
+                    Browse Items
+                  </Button>
+                </Link>
+                <Link to="/my-items">
+                  <Button variant="ghost" size="sm">
+                    My Items
+                  </Button>
+                </Link>
+                <Link to="/requests/sent">
+                  <Button variant="ghost" size="sm">
+                    My Requests
+                  </Button>
+                </Link>
+                <Link to="/requests/received" className="relative">
+                  <Button variant="ghost" size="sm">
+                    Incoming Requests
+                    {pendingCount > 0 && (
+                      <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center">
+                        {pendingCount > 9 ? '9+' : pendingCount}
+                      </span>
+                    )}
+                  </Button>
+                </Link>
+                <Link to="/items/new">
+                  <Button variant="default" size="sm">
+                    Add Item
+                  </Button>
+                </Link>
+                <div className="flex items-center space-x-2 ml-4">
                   <span className="text-sm text-muted-foreground">
                     Welcome,
                   </span>

@@ -69,18 +69,18 @@ const LoginPage = () => {
       const result = await login(formData)
       
       if (result.success) {
-        toast.success('Login successful!')
-        // Redirect to intended destination or home page
-        navigate(from, { replace: true })
+        toast.success('Login successful! Redirecting...')
+        // Force a page reload to the home page
+        window.location.replace('/')
       } else {
         // Display error message from API
         toast.error(result.message || 'Login failed')
         setErrors({ submit: result.message })
+        setIsLoading(false)
       }
     } catch (error) {
       toast.error('An unexpected error occurred')
       setErrors({ submit: 'An unexpected error occurred' })
-    } finally {
       setIsLoading(false)
     }
   }
