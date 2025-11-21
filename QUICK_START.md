@@ -56,7 +56,7 @@ npm run dev
 - ✅ Session persistence (stays logged in on refresh)
 - ✅ Protected routes (requires login)
 - ✅ Logout functionality
-- 🔄 Item management (coming soon)
+- 🔄 Item management (Week 3-4 - in progress)
 
 ---
 
@@ -90,8 +90,40 @@ Press `Ctrl + C` in each terminal window
 
 ---
 
+---
+
+## 🎯 Week 3: Item Management (Current Focus)
+
+### Prerequisites
+- ✅ All systems configured and ready
+- ✅ Cloudinary upload preset created: `rentkar_items`
+- ✅ Database running
+- ✅ Authentication working
+
+### Getting Started with Week 3
+1. Open `.kiro/specs/item-management/tasks.md`
+2. Click "Start task" next to task 1.1
+3. Follow the incremental implementation plan
+
+### What You'll Build
+- Item CRUD operations (Create, Read, Update, Delete)
+- Image upload to Cloudinary
+- Search and filter functionality
+- Pagination for item lists
+- Owner-based authorization
+
+### Cloudinary Configuration
+- **Cloud Name**: dkoemrt4r
+- **Upload Preset**: rentkar_items (unsigned)
+- **Folder**: rentkar/items
+- **Max File Size**: 5MB
+
+---
+
 ## 📚 More Information
 
 - Full documentation: [README.md](./README.md)
 - Detailed setup: [SETUP_GUIDE.md](./SETUP_GUIDE.md)
 - API details: [API_CONTRACT.md](./API_CONTRACT.md)
+- Project status: [PROJECT_STATUS.md](./PROJECT_STATUS.md)
+- Week 3 spec: `.kiro/specs/item-management/`

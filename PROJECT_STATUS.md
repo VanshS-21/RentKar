@@ -47,6 +47,7 @@
 - ✅ Implement token storage (localStorage)
 - ✅ Add logout functionality
 - ✅ Create basic navigation/header component
+- ✅ Implement custom theme with RentKar branding (green primary color)
 - ✅ Implement property-based tests (fast-check)
 - ✅ Core authentication tests passing (8/12)
 
@@ -68,20 +69,25 @@
 
 ---
 
-## 🔄 Week 3-4: Item Management (PENDING)
+## 🔄 Week 3-4: Item Management (IN PROGRESS)
+
+**Spec Status**: ✅ Requirements, Design, and Tasks Complete  
+**Spec Location**: `.kiro/specs/item-management/`
 
 ### Backend Tasks
 - [ ] Create Item entity with relationships
 - [ ] Implement ItemRepository with custom queries
+- [ ] Create CloudinaryService for image upload
 - [ ] Create ItemService for CRUD operations
 - [ ] Build ItemController with REST endpoints
 - [ ] Add search and filter functionality
 - [ ] Implement pagination for item listing
 - [ ] Add validation for item data
-- [ ] Integrate Cloudinary for image upload
-- [ ] Test all item endpoints
+- [ ] Write property-based tests (39 properties)
+- [ ] Write integration tests for all endpoints
 
 ### Frontend Tasks
+- [ ] Create itemService API client
 - [ ] Create Item listing page with grid/list view
 - [ ] Build Add Item form with image upload
 - [ ] Create Item detail page
@@ -91,6 +97,16 @@
 - [ ] Add pagination controls
 - [ ] Implement image preview before upload
 - [ ] Create "My Items" page for user's listings
+- [ ] Write property-based tests for UI components
+
+### Key Features to Implement
+- Full CRUD operations for items
+- Cloudinary integration for image storage
+- Advanced search with keyword matching
+- Multi-criteria filtering (category, status, search)
+- Pagination for large result sets
+- Owner-based authorization for edit/delete
+- Comprehensive property-based testing (39 correctness properties)
 
 ---
 
@@ -258,12 +274,23 @@
 
 **Next Milestone**: Week 3-4 - Item Management
 
+**Spec Ready**: ✅ Complete requirements, design, and implementation plan available at `.kiro/specs/item-management/`
+
 **Priority Tasks**:
-1. Create Item entity with relationships
-2. Implement ItemRepository with custom queries
-3. Build ItemController with REST endpoints
-4. Integrate Cloudinary for image upload
-5. Create Item listing and detail pages
+1. Create Item entity with JPA annotations and relationships
+2. Implement ItemRepository with custom search queries
+3. Create CloudinaryService for image upload integration
+4. Build ItemService with CRUD operations and authorization
+5. Create ItemController with REST endpoints
+6. Implement comprehensive property-based tests (39 properties)
+7. Create frontend item listing page with search and filters
+8. Build Add/Edit Item forms with image upload
+9. Create Item detail page with owner actions
+
+**How to Start**:
+- Open `.kiro/specs/item-management/tasks.md`
+- Click "Start task" next to task 1.1 to begin implementation
+- Follow the incremental task list for guided development
 
 ---
 
