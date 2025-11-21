@@ -40,3 +40,6 @@ application-local.properties
 ### Logs ###
 *.log
 logs/
+
+### Testing ###
+.jqwik-database

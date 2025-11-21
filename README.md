@@ -128,15 +128,22 @@ See `frontend/.env.example` for available options
 - [Product Requirements Document](./PRD.md) - Project specifications and requirements
 - [System Architecture](./ARCHITECTURE.md) - Technical architecture and design
 - [API Contract](./API_CONTRACT.md) - API endpoints and specifications
+- [Authentication System](./AUTHENTICATION.md) - Complete authentication documentation
 - [Wireframes](./WIREFRAMES.md) - UI/UX designs
 - [Team Roles](./TEAM_ROLES.md) - Team structure and responsibilities
 - [Setup Guide](./SETUP_GUIDE.md) - Detailed installation instructions
+- [Quick Start](./QUICK_START.md) - Fast setup and usage guide
 - [Project Status](./PROJECT_STATUS.md) - Current progress and remaining tasks
 
 ## 🎯 Features
 
-### Core Features (To Be Implemented)
-- 🔄 User authentication (Register/Login)
+### Core Features
+- ✅ **User Authentication** - Secure JWT-based authentication with registration and login
+  - Email and password validation
+  - BCrypt password hashing
+  - Session persistence with localStorage
+  - Protected routes with automatic redirect
+  - Logout functionality
 - 🔄 Item listing with image upload
 - 🔄 AI-powered item descriptions
 - 🔄 Borrow request workflow
@@ -150,21 +157,21 @@ See `frontend/.env.example` for available options
 - 🔄 Search and filters
 - 🔄 Notifications
 
-**Current Status**: Week 1 Complete - See [PROJECT_STATUS.md](./PROJECT_STATUS.md) for detailed progress
+**Current Status**: Week 2 Complete - See [PROJECT_STATUS.md](./PROJECT_STATUS.md) for detailed progress
 
 ## 🗓️ Development Timeline
 
-| Week | Milestone |
-|------|-----------|
-| Week 1 | Project Planning & Setup |
-| Week 2 | Authentication System |
-| Week 3-4 | Item Management |
-| Week 5 | AI Integration |
-| Week 6-7 | Borrow Workflow |
-| Week 8-9 | Optional Features |
-| Week 10 | UI Polish |
-| Week 11 | Testing & Debugging |
-| Week 12 | Documentation & Presentation |
+| Week | Milestone | Status |
+|------|-----------|--------|
+| Week 1 | Project Planning & Setup | ✅ Complete |
+| Week 2 | Authentication System | ✅ Complete |
+| Week 3-4 | Item Management | ⏳ In Progress |
+| Week 5 | AI Integration | 📅 Planned |
+| Week 6-7 | Borrow Workflow | 📅 Planned |
+| Week 8-9 | Optional Features | 📅 Planned |
+| Week 10 | UI Polish | 📅 Planned |
+| Week 11 | Testing & Debugging | 📅 Planned |
+| Week 12 | Documentation & Presentation | 📅 Planned |
 
 ## 👥 Team
 

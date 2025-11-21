@@ -33,11 +33,30 @@ npm run dev
 
 ## 👤 First Time User
 
+### Registration
 1. Go to http://localhost:5173
-2. Click **"Register"** or **"Sign Up"**
-3. Create your account
-4. Login with your credentials
-5. Start using RentKar!
+2. Click **"Create Account"** or navigate to `/register`
+3. Fill in the registration form:
+   - Username (required)
+   - Email (required, valid format)
+   - Password (required, minimum 8 characters)
+   - Full Name (required)
+   - Phone (optional)
+4. Click **"Create Account"**
+5. You'll be redirected to the login page
+
+### Login
+1. Navigate to `/login` or click **"Log in"**
+2. Enter your username and password
+3. Click **"Log In"**
+4. You'll be redirected to the home page
+
+### Features Available
+- ✅ Secure authentication with JWT tokens
+- ✅ Session persistence (stays logged in on refresh)
+- ✅ Protected routes (requires login)
+- ✅ Logout functionality
+- 🔄 Item management (coming soon)
 
 ---
 

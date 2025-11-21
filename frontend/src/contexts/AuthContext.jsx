@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from 'react'
-import axios from 'axios'
+import authService from '../services/authService'
 
 const AuthContext = createContext(null)
 
@@ -13,85 +13,122 @@ export const useAuth = () => {
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null)
-  const [loading, setLoading] = useState(true)
-  const [token, setToken] = useState(localStorage.getItem('token'))
+  const [isLoading, setIsLoading] = useState(true)
+  const [token, setToken] = useState(null)
 
-  // Configure axios defaults
+  // Check localStorage for token on initialization and restore auth state
   useEffect(() => {
-    if (token) {
-      axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
-    } else {
-      delete axios.defaults.headers.common['Authorization']
-    }
-  }, [token])
-
-  // Check if user is logged in on mount
-  useEffect(() => {
-    const checkAuth = async () => {
-      if (token) {
+    const initializeAuth = async () => {
+      const storedToken = localStorage.getItem('token')
+      
+      if (storedToken) {
+        setToken(storedToken)
+        
+        // Try to restore user data with the stored token
         try {
-          const response = await axios.get(`${import.meta.env.VITE_API_BASE_URL}/auth/me`)
-          setUser(response.data.data)
+          const response = await authService.getCurrentUser()
+          if (response.success) {
+            setUser(response.data)
+          } else {
+            // Token is invalid or expired, clear it
+            localStorage.removeItem('token')
+            setToken(null)
+          }
         } catch (error) {
-          console.error('Auth check failed:', error)
-          logout()
+          console.error('Failed to restore auth state:', error)
+          localStorage.removeItem('token')
+          setToken(null)
         }
       }
-      setLoading(false)
+      
+      setIsLoading(false)
     }
 
-    checkAuth()
-  }, [token])
+    initializeAuth()
+  }, [])
 
   const login = async (credentials) => {
     try {
-      const response = await axios.post(
-        `${import.meta.env.VITE_API_BASE_URL}/auth/login`,
-        credentials
-      )
-      const { token: newToken, user: userData } = response.data.data
-      setToken(newToken)
-      setUser(userData)
-      localStorage.setItem('token', newToken)
-      return { success: true }
+      const response = await authService.login(credentials)
+      
+      if (response.success) {
+        const { token: newToken, user: userData } = response.data
+        
+        // Store token in state and localStorage
+        setToken(newToken)
+        setUser(userData)
+        localStorage.setItem('token', newToken)
+        
+        return { success: true }
+      } else {
+        return {
+          success: false,
+          message: response.error || 'Login failed',
+        }
+      }
     } catch (error) {
+      // Network errors should display user-friendly messages
+      const isNetworkError = error.message && (
+        error.message.includes('Network') ||
+        error.message.includes('network') ||
+        error.message.includes('fetch') ||
+        error.code === 'ERR_NETWORK'
+      )
+      
       return {
         success: false,
-        message: error.response?.data?.message || 'Login failed',
+        message: isNetworkError 
+          ? 'An unexpected error occurred. Please check your connection and try again.' 
+          : (error.message || 'Login failed'),
       }
     }
   }
 
   const register = async (userData) => {
     try {
-      const response = await axios.post(
-        `${import.meta.env.VITE_API_BASE_URL}/auth/register`,
-        userData
-      )
-      return { success: true, data: response.data }
+      const response = await authService.register(userData)
+      
+      if (response.success) {
+        return { success: true, data: response.data }
+      } else {
+        return {
+          success: false,
+          message: response.error || 'Registration failed',
+        }
+      }
     } catch (error) {
+      // Network errors should display user-friendly messages
+      const isNetworkError = error.message && (
+        error.message.includes('Network') ||
+        error.message.includes('network') ||
+        error.message.includes('fetch') ||
+        error.code === 'ERR_NETWORK'
+      )
+      
       return {
         success: false,
-        message: error.response?.data?.message || 'Registration failed',
+        message: isNetworkError 
+          ? 'An unexpected error occurred. Please check your connection and try again.' 
+          : (error.message || 'Registration failed'),
       }
     }
   }
 
   const logout = () => {
+    // Clear all auth state
     setUser(null)
     setToken(null)
     localStorage.removeItem('token')
-    delete axios.defaults.headers.common['Authorization']
   }
 
   const value = {
     user,
     token,
-    loading,
+    isLoading,
+    isAuthenticated: !!user && !!token,
     login,
     register,
     logout,
-    isAuthenticated: !!user,
   }
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>
